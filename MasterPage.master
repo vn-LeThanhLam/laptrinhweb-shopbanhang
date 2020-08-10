@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SHOP ABC</title>
+    <link rel="stylesheet" href="StyleSheet.css">
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <form id="form1" runat="server">
+
+      <!-- Page Content -->
+
+<div class="header">
+  <h1>SHOP ABC</h1>
+  <p>Mua hàng nhanh chóng tiện lợi.</p>
+</div>
+
+<div class="topnav">
+    <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Trangchu.aspx" runat="server">Trang chủ</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink3" NavigateUrl="~/User/Quantri.aspx" runat="server">Người dùng</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink4" NavigateUrl="~/lienhe.aspx" runat="server">Liên hệ</asp:HyperLink>
+
+
+</div>
+
+            <div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+  </div>
+
+</div>
+  <div class="rightcolumn">
+    <div class="card">
+        <h2>DANH MỤC</h2>
+             <asp:DataList ID="DataList1" RepeatColumns="1" runat="server">
+            <ItemTemplate>
+                <asp:HyperLink ID="HyperLink1" CssClass="list-group-item" runat="server" NavigateUrl='<%# "Trangchu.aspx?ma=" + Eval("Madm") %>' Text='<%# Eval("Tendm") %>'></asp:HyperLink>
+            </ItemTemplate>
+             </asp:DataList>
+    </div>
+      <div class="card">
+              <h2>TÌM KIẾM</h2>
+      <input id="Text1" type="text" />
+    </div>
+  </div>
+</div>
+<div id="lh" class="footer">
+  <h3>©2020 Shop ABC</h3>
+    <p>Hotline: 16654</p>
+</div>
+
+    </form>
+</body>
+</html>
